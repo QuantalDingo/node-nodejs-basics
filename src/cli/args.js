@@ -1,5 +1,15 @@
+import { argv } from 'node:process';
+
 const parseArgs = () => {
-    // Write your code here 
+	const result = argv
+		.slice(2)
+		.map((item) =>
+			item.startsWith('--') ? `${item.replace('--', '')} is ` : `${item}, `
+		)
+		.join('')
+		.replace(/, $/, '');
+
+	console.log(result);
 };
 
 parseArgs();
